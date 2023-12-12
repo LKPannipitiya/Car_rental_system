@@ -39,7 +39,7 @@ Vehicle Details
                     <p class="text-left pl-2">Vehicle Type: {{ vehicle.vehicle_type.vehicle_type }}</p>
                     <p class="text-left pl-2">Fuel Type: {{ vehicle.fuel_type }}</p>
                     <p class="text-left pl-2">Gear Type: {{ vehicle.gear_type }}</p>
-                    <p class="text-left pl-2">Hire cost/day: £{{ vehicle.hire_cost }}</p>
+                    <p class="text-left pl-2">Hire cost/day: $. {{ vehicle.hire_cost }}</p>
                 </div>
             </div>
             <hr>
@@ -60,7 +60,7 @@ Vehicle Details
                     <h4>Booking Details:</h4>
                     <p class="text-center">Pickup: {{ from_time }} {%if from_time > 12 %}PM{%else%}AM{%endif%} on {{ from_date }}</p>
                     <p class="text-center">Return: {{ to_time }} {%if to_time > 12 %}PM{%else%}AM{%endif%} on {{ to_date }}</p>
-                    <p class="red text-center">Total hire cost: £{{ vehicle.total_cost }}</p>
+                    <p class="red text-center">Total hire cost: $.{{ vehicle.total_cost }}</p>
                     <!-- Booking form -->
                     <form action="/book" method="POST">
                         {% csrf_token %}
@@ -88,7 +88,7 @@ Vehicle Details
                                         </p>
                                         <p>Pickup: <span class="red">{{ from_time }} {%if from_time > 12 %}PM{%else%}AM{%endif%} on {{ from_date }} </span></p>
                                         <p>Return: <span class="red">{{ to_time }} {%if to_time > 12 %}PM{%else%}AM{%endif%} on {{ to_date }}</span></p>
-                                        <p>Total Cost: <span class="red">£{{ vehicle.total_cost }}</span></p>
+                                        <p>Total Cost: <span class="red">$.{{ vehicle.total_cost }}</span></p>
                                         <p>You'll need to bring a photocard of your driving license, 1 other form of identity from
                                             either a recent utility bill (within 3 months) or council tax statement, and the e-mail that you'll
                                             receive once you book with us, on the pickup date.</p>
